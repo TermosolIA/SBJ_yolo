@@ -1,0 +1,53 @@
+data/images/train/colector_A45_crop_SBJ_I.jpg
+data/images/train/colector_A46_crop_SBJ_I.jpg
+data/images/train/colector_A47_crop_SBJ_I.jpg
+data/images/train/colector_A48_crop_SBJ_I.jpg
+data/images/train/colector_A49_crop_SBJ_I (1).jpg
+data/images/train/colector_A49_crop_SBJ_I.jpg
+data/images/train/colector_A50_crop_SBJ_I (1).jpg
+data/images/train/colector_A50_crop_SBJ_I.jpg
+data/images/train/colector_A51_crop_SBJ_I (1).jpg
+data/images/train/colector_A51_crop_SBJ_I.jpg
+data/images/train/colector_A52_crop_SBJ_I (1).jpg
+data/images/train/colector_A52_crop_SBJ_I.jpg
+data/images/train/colector_A53_crop_SBJ_I (1).jpg
+data/images/train/colector_A53_crop_SBJ_I.jpg
+data/images/train/colector_A54_crop_SBJ_I (1).jpg
+data/images/train/colector_A54_crop_SBJ_I.jpg
+data/images/train/colector_A55_crop_SBJ_I.jpg
+data/images/train/colector_A56_crop_SBJ_I.jpg
+data/images/train/colector_A58_crop_SBJ_I.jpg
+data/images/train/colector_A59_crop_SBJ_I.jpg
+data/images/train/colector_A60_crop_SBJ_I.jpg
+data/images/train/colector_A61_crop_SBJ_I.jpg
+data/images/train/colector_A62_crop_SBJ_I (1).jpg
+data/images/train/colector_A62_crop_SBJ_I.jpg
+data/images/train/colector_A63_crop_SBJ_I.jpg
+data/images/train/colector_A64_crop_SBJ_I.jpg
+data/images/train/colector_A65_crop_SBJ_I (1).jpg
+data/images/train/colector_A65_crop_SBJ_I.jpg
+data/images/train/colector_A66_crop_SBJ_I (1).jpg
+data/images/train/colector_A66_crop_SBJ_I.jpg
+data/images/train/colector_A67_crop_SBJ_I.jpg
+data/images/train/colector_A68_crop_SBJ_I.jpg
+data/images/train/colector_A69_crop_SBJ_I.jpg
+data/images/train/colector_A70_crop_SBJ_I (1).jpg
+data/images/train/colector_A70_crop_SBJ_I.jpg
+data/images/train/colector_A71_crop_SBJ_I (1).jpg
+data/images/train/colector_A71_crop_SBJ_I.jpg
+data/images/train/colector_A72_crop_SBJ_I.jpg
+data/images/train/colector_A73_crop_SBJ_I.jpg
+data/images/train/colector_A74_crop_SBJ_I.jpg
+data/images/train/colector_A75_crop_SBJ_I.jpg
+data/images/train/colector_A76_crop_SBJ_I (1).jpg
+data/images/train/colector_A76_crop_SBJ_I.jpg
+data/images/train/colector_A77_crop_SBJ_I (1).jpg
+data/images/train/colector_A77_crop_SBJ_I.jpg
+data/images/train/colector_A78_crop_SBJ_I (1).jpg
+data/images/train/colector_A78_crop_SBJ_I.jpg
+data/images/train/colector_A81_crop_SBJ_I (1).jpg
+data/images/train/colector_A81_crop_SBJ_I.jpg
+data/images/train/colector_A82_crop_SBJ_I.jpg
+data/images/train/colector_A83_crop_SBJ_I.jpg
+data/images/train/colector_A84_crop_SBJ_I (1).jpg
+data/images/train/colector_A84_crop_SBJ_I.jpg
