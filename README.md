@@ -86,9 +86,9 @@ Add any aditional data you have annotated, the following images are a sample on 
 ![imagen](examples/image1.png)
 ![imagen](examples/image3.png)
 
-Then, run this code(make sure that this files have proper path to the files `data.yaml, train.txt, val.txt`)
+Then, run this code(make sure that this files have proper paths for your user `data.yaml, train.txt, val.txt` )
 ```bash
-python training.py
+python3 training.py
 ```
 
 
