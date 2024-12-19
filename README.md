@@ -6,34 +6,30 @@ This reposity it's created as deliberable for the project started along Cobra fo
 
 ## **Repository Contents**
 
-1. **YOLO Module**
-   - Description of the trained YOLO module and its functionality.
-   - Instructions on how to use it for video processing.
+1. **YOLOv5 Model**
+   - Model trained for detecting joints with around 2000 images.
+   - Ultralytics as framework for working easily with the model.
 
-2. **Dataset**
-   - Details of the dataset used to train YOLO.
-   - Dataset source (if applicable).
-   - Guide on adding or modifying data for re-training the model.
+2. **2 Different Datasets**
+   - One trained for the standard joint detection, another for locating bases of the colector.
+   - Dataset source.
+   - Datasets are structured in the classic (train, test, validation) schema, and in yolo format, see the datasets to include more information if wanted.
 
 3. **Video Processing**
-   - Description of the script for video processing.
-   - Expected input format (e.g., video files).
-   - Generated output (e.g., processed images or data).
+   - The scripts process all videos and srt within a folder called `VIDEOS` (you must create it) and calculate the angles for each full detection. Then, it geolocalizes the colector and saved the angle.
+   - Once you have all videos and map ready, just run ``` python3 detections.py```, it will throws everything in a folder called `salida`.
 
 4. **Map Generation**
-   - Description of the script for generating pre-processing maps.
-   - Input and output formats.
-   - Its relation to the YOLO module.
+   - `coordenadas.py` it is able to map all colector within a plant with just a few parameters and coordinates. Change then as needed and run it with `python3 coordenadas.py`.
+   - The code will throw a text file that you can name however you want and an html file that lets you visualize the map. Change the map you want to use in file called `MODULOS/Identificar_Colector.py`.
 
 ---
 
 ## **Prerequisites**
 
-List of tools, libraries, and frameworks needed to run the project:
-
-- Python (recommended version).
-- TensorFlow/PyTorch (depending on YOLO backend).
-- OpenCV, NumPy, Matplotlib, etc.
+- Python 3.10.
+- Ultralytics.
+- OpenCV and NumPy.
 
 ---
 
@@ -41,8 +37,8 @@ List of tools, libraries, and frameworks needed to run the project:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone (https://github.com/TermosolIA/SBJ_yolo.git)
+   cd SBJ_yolo
    ```
 
 2. Install dependencies:
@@ -50,30 +46,48 @@ List of tools, libraries, and frameworks needed to run the project:
    pip install -r requirements.txt
    ```
 
-3. Download the YOLO model weights:
-   - Link or steps to download the trained model weights.
-
 ---
 
 ## **Usage**
 
-### **1. Generate Pre-Processing Maps**
+### **1. Generate Pre-Processing Maps if needed**
+
+Enter `coordenadas.py` script, you will need to modify this section:
+``` 
+# Example usage
+num_rows = 84
+row_separation = 17.21  # 17.2 meters between each row
+panel_separation = 80 # Configurable distance between north and south panels
+
+hallways = [(38.622555,-6.754470),(38.62531,-6.75432),(38.62819,-6.75425),(38.63104,-6.75419),(38.63381,-6.75410)]  # Example starting hallway coordinates
+hallway_ends = [(38.62224,-6.73790),(38.62499,-6.73790),(38.62788,-6.73779),(38.63073,-6.73773),(38.63347,-6.73758)]  # Example ending hallway coordinates
+letters = [('A', 'A'),('C', 'B'),('E', 'D'),('G', 'F'),('H', 'H')]  # Letters for north and south groups in each hallway
+```
+Where hallways and hallway_ends are the coordinates in long,lat of the hallways where colectors are located. Letters represent the name they have asigned, for example, the second hallway contains C and B colector, first on the upper part and second on the lower part using map visualization. We recommend using `https://www.openstreetmap.org/` for that purpose.
 Run the map generation script:
 ```bash
-python generate_maps.py --input input_folder --output output_folder
+python3 coordenadas.py
 ```
+Then, rename the map as you want and put it on `MODULOS/mapas` folder, remember to change the map you want to use on `MODULOS/Identificar_Colector.py`.
 
 ### **2. Process Videos with YOLO**
 Run the video processing script:
 ```bash
-python process_videos.py --video video.mp4 --output results/
+python3 detections.py
 ```
 
 ### **3. Train YOLO (Optional)**
 If you want to re-train the model, follow these steps:
+
+Download the Datasets in the link provided
+Unzip them and throw the folder data on `SBJ_yolo` folder.
+Add any aditional data you have annotated, the following images are a sample on how to lable properly:
+
+Then, run this code(make sure that this files have proper path to the files `data.yaml, train.txt, val.txt`)
 ```bash
-python train_yolo.py --dataset path_to_dataset --epochs 50
+python training.py
 ```
+
 
 ---
 
