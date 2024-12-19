@@ -1,5 +1,5 @@
 import re
-from geopy.distance import geodesic
+import math
 
 def obtener_coordenadas(linea):
     """
@@ -9,7 +9,6 @@ def obtener_coordenadas(linea):
     lon_match = re.search(r"\[longitude: ([\d.-]+)\]", linea)
     yaw_match = re.search(r"\[.*yaw\s*:\s*([\d.-]+)", linea, re.IGNORECASE)  # Searches for 'yaw' in a flexible way
     
-   
     if not (lat_match and lon_match and yaw_match):
         raise ValueError("Failed to extract coordinates and yaw from the input line.")
     
@@ -23,22 +22,27 @@ def obtener_coordenadas(linea):
     
     return longitud, latitud, yaw
 
-def obtener_hora(linea):
-    """
-    Extract time from the input line (first part before the comma).
-    """
-    return linea.split(',')[0]
 
-def geodesic_distance(lat1, lon1, lat2, lon2):
+def haversine_distance(lat1, lon1, lat2, lon2):
     """
-    Use geodesic distance calculation from geopy to measure the distance
-    between two geographic points accurately.
+    Calculate the distance between two geographic points using the Haversine formula.
     """
-    return geodesic((lat1, lon1), (lat2, lon2)).meters
+    # Convert degrees to radians
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    
+    # Haversine formula
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    
+    # Earth radius in meters
+    R = 6371000  
+    return R * c
 
 def identificar_colector(lon, lat, yaw, filename="./MODULOS/mapas/extre2.txt"):
     """
-    Identify the closest location based purely on geodesic distance.
+    Identify the closest location based purely on Haversine distance.
     """
     closest_location = None
     min_distance = float('inf')
@@ -49,8 +53,8 @@ def identificar_colector(lon, lat, yaw, filename="./MODULOS/mapas/extre2.txt"):
             loc_lon = float(loc_lon)
             loc_lat = float(loc_lat)
 
-            # Calculate geodesic distance between the current location and the location in the file
-            distance = geodesic_distance(lat, lon, loc_lat, loc_lon)
+            # Calculate Haversine distance between the current location and the location in the file
+            distance = haversine_distance(lat, lon, loc_lat, loc_lon)
             # Find the location with the smallest distance
             if distance < min_distance:
                 min_distance = distance
