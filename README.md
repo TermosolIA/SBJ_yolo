@@ -83,8 +83,8 @@ Download the Datasets in the link provided
 Unzip them and throw the folder data on `SBJ_yolo` folder.
 Add any aditional data you have annotated, the following images are a sample on how to lable properly:
 
-![imagen](example_classes/image1.png)
-![imagen](example_classes/image3.png)
+![imagen](examples/image1.png)
+![imagen](examples/image3.png)
 
 Then, run this code(make sure that this files have proper path to the files `data.yaml, train.txt, val.txt`)
 ```bash
