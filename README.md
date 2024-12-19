@@ -76,6 +76,12 @@ Run the video processing script:
 python3 detections.py
 ```
 
+Once the video has been processed, you can run:
+```bash
+python3 base_detector.py
+```
+This code will process some crop images of the previous process and detect how moved are the joint respect of the base. Results will be saved in subfolder for each video in `salida/video_name` folder.
+
 ### **3. Train YOLO (Optional)**
 If you want to re-train the model, follow these steps:
 
