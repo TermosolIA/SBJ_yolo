@@ -1,6 +1,6 @@
 # **Bolt Joint Detection**
 
-This reposity it's created as deliberable for the project started along Cobra for detecting failures on thermosolar panels.
+This reposity was created as deliberable for the project started along Cobra for detecting failures on thermosolar panels.
 
 ---
 
@@ -10,13 +10,13 @@ This reposity it's created as deliberable for the project started along Cobra fo
    - Model trained for detecting joints with around 2000 images.
    - Ultralytics as framework for working easily with the model.
 
-2. **2 Different Datasets**
+2. ** Two Different Datasets**
    - One trained for the standard joint detection, another for locating bases of the colector.
    - Dataset source.
    - Datasets are structured in the classic (train, test, validation) schema, and in yolo format, see the datasets to include more information if wanted.
 
 3. **Video Processing**
-   - The scripts process all videos and srt within a folder called `VIDEOS` (you must create it) and calculate the angles for each full detection. Then, it geolocalizes the colector and saved the angle.
+   - The scripts process all videos and srt within a folder called `VIDEOS` (you must create it) and calculate the angles for each full detection. Then, it geolocalizes the colector and saves the angles.
    - Once you have all videos and map ready, just run ``` python3 detections.py```, it will throws everything in a folder called `salida`.
 
 4. **Map Generation**
@@ -79,7 +79,7 @@ python3 detections.py
 ### **3. Train YOLO (Optional)**
 If you want to re-train the model, follow these steps:
 
-Download the Datasets in the link provided
+Download the Datasets in the link provided.
 Unzip them and throw the folder data on `SBJ_yolo` folder.
 Add any aditional data you have annotated, the following images are a sample on how to lable properly:
 
