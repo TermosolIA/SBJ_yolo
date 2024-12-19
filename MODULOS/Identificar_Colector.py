@@ -16,9 +16,6 @@ def obtener_coordenadas(linea):
     longitud = float(lon_match.group(1))
     yaw = float(yaw_match.group(1))
     
-    print(latitud)
-    print(longitud)
-    print(yaw)
     
     return longitud, latitud, yaw
 

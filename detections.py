@@ -85,14 +85,16 @@ def draw_detections_and_triangle(frame, detections, output_file, colector, video
             points[label] = center
         
         if label == "SBJ_I":
-            print(bbox)
+            
             x1, y1, x2, y2 = map(int, bbox)
 
             # Calculate the center of the BBOX
-            center_x, center_y = (x1 + x2) // 2, (y1 + y2) // 2
-            
+            center_x, center_y = ((x2 - x1) // 2) + 100 , ((y2 - y1) // 2) +30
+
+            print(f'{center_x},{center_y}')
             # Crop the area and add padding
-            crop = frame[max(0, y1 - 30):y2 + 220, max(0, x1 - 100):x2 + 100]
+            crop = frame[y1 - 30:y2 + 220, x1 - 100:x2 + 100]
+            
             
             # Ensure the crops_base folder exists within the video folder
             crops_folder = os.path.join(video_folder, 'crops_base')
@@ -100,7 +102,6 @@ def draw_detections_and_triangle(frame, detections, output_file, colector, video
             
             # Save the cropped image with a dot
             crop_filename = os.path.join(crops_folder, f'crop_SBJ_I_frame_{frame_number}.jpg')
-            cv2.circle(crop, (center_x - max(0, x1 - 100), center_y - max(0, y1 - 30)), 5, (0, 0, 255), -1)
             cv2.imwrite(crop_filename, crop)
             
             # Save the center of the BBOX to a CSV file in the crops_base folder
